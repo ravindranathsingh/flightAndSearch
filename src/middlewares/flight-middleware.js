@@ -1,3 +1,5 @@
+const { ClientErrorCode } = require('../utils/error-codes')
+
 const validateCreateFlight = async ( req, res, next ) => {
     if (
         !req.body.flightNumber ||
@@ -9,7 +11,7 @@ const validateCreateFlight = async ( req, res, next ) => {
         !req.body.price ||
         !req.body.boardingGate
     ) {
-        return res.status(400).json({
+        return res.status(ClientErrorCode.BAD_REQUEST).json({
             data: {},
             success: false,
             message: "Inavlid request for create flight",

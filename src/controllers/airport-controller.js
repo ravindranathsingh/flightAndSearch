@@ -1,4 +1,6 @@
 const { AirportServices } = require('../services/index')
+const { SuccessCode } = require('../utils/error-codes')
+
 const airportServices = new AirportServices;
 
 const create = async (req, res) => {
@@ -14,7 +16,7 @@ const create = async (req, res) => {
             boardingGate: req.body.boardingGate
         }
         const response = await airportServices.create(flightRequestData)
-        return res.status(200).json({
+        return res.status(SuccessCode.OK).json({
             data: response,
             success: true,
             message: 'Successfully created the Airport',
