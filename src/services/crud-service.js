@@ -1,4 +1,4 @@
-class CurdServices {
+class CrudServices {
     constructor(repository) {
         this.repository = repository;
     }
@@ -45,6 +45,7 @@ class CurdServices {
                     id: id
                 }
             })
+            return response;
         } catch (error) {
             console.log("Something went at service layer");
             throw{error}
@@ -52,4 +53,4 @@ class CurdServices {
     }
 }
 
-module.export = CurdServices;
+module.exports = CrudServices;

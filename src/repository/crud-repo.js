@@ -49,6 +49,7 @@ class CrudRepository {
                     id: modelId
                 }
             })
+            return result;
         } catch (error) {
             console.log("Something went wrong in the repo layer");
             throw {error}

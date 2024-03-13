@@ -21,4 +21,4 @@ const validateCreateFlight = async ( req, res, next ) => {
     next();
 }
 
-modlule.exports = { validateCreateFlight }
+module.exports = { validateCreateFlight }
