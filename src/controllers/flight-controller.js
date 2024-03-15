@@ -58,7 +58,7 @@ const get = async ( req, res ) => {
         return res.status(201).json({
             data: flight,
             success: true,
-            message: 'Successfully fteched the Flights',
+            message: 'Successfully fetched the Flights',
             err: {}
         })
     } catch (error) {
@@ -72,4 +72,24 @@ const get = async ( req, res ) => {
     }
 }
 
-module.exports = { create, getAll, get }
+const update = async ( req, res ) => {
+    try {
+        const response = await flightService.updateFlight(req.params.id, req.body)
+        return res.status(201).json({
+            data: response,
+            success: true,
+            message: 'Successfully updated the Flights',
+            err: {}
+        })
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: 'Could not update Flights',
+            err: error
+        })
+    }
+}
+
+module.exports = { create, getAll, get, update }
